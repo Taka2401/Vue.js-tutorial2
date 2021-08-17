@@ -11,16 +11,24 @@
   <div id="app">
     <p>{{ number }}</p>
     <button @click="countUp">countup</button>
+    <p @mousemove="changeMousePosition">マウスをのせてください</p>
+    <p>X:{{x}} Y:{{y}}</p>
   </div>
 <script>
   new Vue({
     el: '#app',
     data: {
-      number: 0
+      number: 0,
+      x: 0,
+      y: 0
     },
     methods: {
       countUp: function() {
         this.number ++;
+      },
+      changeMousePosition: function(event) {
+        this.x = event.clientX;
+        this.y = event.clientY;
       }
     },
   })
