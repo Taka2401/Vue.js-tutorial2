@@ -9,20 +9,20 @@
 <body>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
   <div id="app">
-    <a :[attribute]="url">google</a>
-    <a v-bind="twitter">twitter</a>
+    <p>{{ number }}</p>
+    <button @click="countUp">countup</button>
   </div>
 <script>
   new Vue({
     el: '#app',
     data: {
-      url: 'https://google.com',
-      attribute: 'href',
-      twitter: {
-        href: 'https://twitter.com',
-        id: 33
+      number: 0
+    },
+    methods: {
+      countUp: function() {
+        this.number ++;
       }
-    }
+    },
   })
 </script>
 </body>
