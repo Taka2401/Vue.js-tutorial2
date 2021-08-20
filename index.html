@@ -12,28 +12,28 @@
 
   <div id="app1">
     <p>{{ message }}</p>
-  </div>
-
-  <div id="app2">
-    <p>{{ message }}</p>
+    <p>{{ myData }}</p>
   </div>
 
 <script>
+  const data = {
+    message: 'Hello',
+    name: '田中'
+  }
+
+
   const vm = new Vue({
     el: '#app1',
-    data: {
-      message: 'インスタンス1'
+    data: data,
+    computed: {
+      myData: function() {
+        return this.$data
+      }
     }
   })
 
-  vm.message = 'Hello'
+  console.log(data === vm.$data);
 
-  new Vue({
-    el: '#app2',
-    data: {
-      message: 'インスタンス2'
-    }
-  })
 </script>
 
 </body>
