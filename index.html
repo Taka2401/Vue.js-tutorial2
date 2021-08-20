@@ -11,12 +11,13 @@
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 
   <div id="app">
-    <template v-for="fruit in fruits">
-      <ul>
-        <li>{{ fruit }}</li>
-        <hr>
-      </ul>
-    </template>
+    <ul>
+      <div v-for="fruit in fruits" :key="fruit">
+        <p>{{ fruit }}</p>
+        <input type="text">
+      </div>
+    </ul>
+    <button @click="remove">削除</button>
   </div>
 
 <script>
@@ -24,7 +25,12 @@
     el: '#app',
     data: {
       fruits: ['りんご', 'ブドウ', 'バナナ']
-    }
+    },
+    methods: {
+      remove: function() {
+        this.fruits.shift();
+      }
+    },
   })
 </script>
 
