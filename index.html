@@ -13,6 +13,7 @@
     <button @click="countUp(5)">countUp</button>
     <p @mousemove="changeMousePosition($event, 3)">マウスをのせてください
       <span @mousemove.stop>反応しない</span></p>
+      <a @click.prevent href="https://google.com">google</a>
     <p>X:{{x}} Y:{{y}}</p>
   </div>
 <script>
