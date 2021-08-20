@@ -11,18 +11,16 @@
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 
   <div id="app">
-    <template v-if="ok">
-      <p>ok</p>
-      <p>maybeOk</p>
-      <p>not ok</p>
-    </template>
+    <ul>
+      <li v-for="fruit in fruits">{{ fruit }}</li>
+    </ul>
   </div>
 
 <script>
   new Vue({
     el: '#app',
     data: {
-      ok: true
+      fruits: ['りんご', 'ブドウ', 'バナナ']
     }
   })
 </script>
