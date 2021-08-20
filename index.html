@@ -14,13 +14,21 @@
     <ul>
       <li v-for="(fruit, index) in fruits">({{ index }}){{ fruit }}</li>
     </ul>
+    <ul>
+      <li v-for="value in Object">{{ value }}</li>
+    </ul>
   </div>
 
 <script>
   new Vue({
     el: '#app',
     data: {
-      fruits: ['りんご', 'ブドウ', 'バナナ']
+      fruits: ['りんご', 'ブドウ', 'バナナ'],
+      Object: {
+        firstName: '太郎',
+        lastName: '田中',
+        age: 23
+      }
     }
   })
 </script>
