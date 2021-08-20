@@ -12,13 +12,16 @@
 
   <div id="app">
     <p v-if="ok">ok</p>
+    <p v-else-if="maybeOk">meybeOk</p>
+    <p v-else>not ok</p>
   </div>
 
 <script>
   new Vue({
     el: '#app',
     data: {
-      ok: true
+      ok: false,
+      maybeOk: false
     }
   })
 </script>
