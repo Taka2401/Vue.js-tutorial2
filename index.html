@@ -17,7 +17,7 @@
   </div>
 
 <script>
-  Vue.component('like', {
+  const likeComponent = {
     data: function() {
       return {
         number: 12
@@ -29,10 +29,14 @@
         this.number += 1;
       }
     }
-  })
+  }
+
 
   new Vue({
-    el: '#app'
+    el: '#app',
+    components: {
+      'like': likeComponent
+    }
   })
 
 </script>
