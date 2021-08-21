@@ -1,9 +1,7 @@
 <template>
   <div>
-    <slot>
-      <h1>デフォルト</h1>
-    </slot>
-    <h2>{{ headerText }}</h2>
+    <slot name="title"></slot>
+    <slot name="number"></slot>
   </div>
 </template>
 
