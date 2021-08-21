@@ -8,7 +8,7 @@
 export default {
   data() {
     return {
-      number: 10
+      number: 14
     }
   }
 }
