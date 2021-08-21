@@ -2,7 +2,6 @@
   <div>
     <slot name="title" :user="user"></slot>
     <slot></slot>
-    <hr>
   </div>
 </template>
 
