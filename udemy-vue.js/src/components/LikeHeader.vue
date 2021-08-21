@@ -1,6 +1,8 @@
 <template>
   <div>
-    <slot></slot>
+    <slot>
+      <h1>デフォルト</h1>
+    </slot>
     <h2>{{ headerText }}</h2>
   </div>
 </template>
