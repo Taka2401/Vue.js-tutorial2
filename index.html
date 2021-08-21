@@ -10,31 +10,29 @@
 <body>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 
-  <div id="app1">
-    <p>{{ message }}</p>
-    <p>{{ myData }}</p>
-    <hello></hello>
-    <hello></hello>
+  <div id="app">
+    <like></like>
+    <like></like>
+    <like></like>
   </div>
 
 <script>
-  Vue.component('hello', {
-    template: '<p>こんにちは</p>'
-  });
-
-  const data = {
-    message: 'Hello',
-    name: '田中'
-  }
-
-  const vm = new Vue({
-    el: '#app1',
-    data: data,
-    computed: {
-      myData: function() {
-        return this.$data
+  Vue.component('like', {
+    data: function() {
+      return {
+        number: 12
+      }
+    },
+    template: '<p>いいね({{ number }})<button @click="increment">+1</button></p>',
+    methods: {
+      increment: function() {
+        this.number += 1;
       }
     }
+  })
+
+  new Vue({
+    el: '#app'
   })
 
 </script>
