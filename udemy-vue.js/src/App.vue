@@ -2,8 +2,9 @@
   <div>
     <LikeHeader>
       <p>はじめまして</p>
-      <template v-slot:title>
+      <template v-slot:title="slotProps">
         <h1>Hello</h1>
+        <p>{{ slotProps.user.firstName }}</p>
       </template>
       <p>皆さん</p>
       <template v-slot:number>
