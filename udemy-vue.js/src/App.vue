@@ -16,11 +16,14 @@
       <pre>{{ eventData.title }}</pre>
       <label for="maxNumber"></label>
       <input id="maxNumber" type="number" v-model.number="eventData.maxNumber">
-      <p>{{ typeof eventData.maxNumber }}</p>
+      <p>{{ eventData.maxNumber }}</p>
     </div>
     <label for="host">主催者</label>
-    <input id="host" type="string" v-model.trim="eventData.host">
+    <input id="host" type="text" v-model.trim="eventData.host">
     <pre>{{ eventData.host }}</pre>
+    <label for="detail">イベントの内容</label>
+    <textarea id="detail" cols="30" rows="10" v-model="eventData.detail"></textarea>
+    <pre>{{ eventData.detail }}</pre>
   </div>
 </template>
 
@@ -35,9 +38,10 @@ export default {
       number :14,
       currentComponent: 'Home',
       eventData: {
-        title: 'タイトル',
+        title: '',
         maxNumber: 0,
-        host: ''
+        host: '',
+        detail: ''
       }
     };
   },
