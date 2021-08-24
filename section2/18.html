@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+
+  <div id="app">
+    <p v-on:mousemove="changeMousePosition">マウスを上に載せている間イベントが起きる</p>
+    <p>x: {{ x }}</p>
+    <p>y: {{ y }}</p>
+  </div>
+
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      x: 0,
+      y: 0
+    },
+    methods: {
+      changeMousePosition(event) {
+        // console.log(event);
+        this.x = event.clientX;
+        this.y = event.clientY;
+      }
+    },
+  })
+
+</script>
+
+</body>
+</html>

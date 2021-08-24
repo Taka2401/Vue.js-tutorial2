@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+
+  <div id="app">
+    <p>{{ number }}</p>
+    <button v-on:click="countUp(3)">+1</button>
+    <p v-on:mousemove="changeMousePosition($event, 3)">マウスを上に載せている間イベントが起きる</p>
+    <p>x: {{ x }}</p>
+    <p>y: {{ y }}</p>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        number: 0,
+        x: 0,
+        y: 0
+      },
+      methods: {
+        // 引数渡す
+        countUp(times) {
+          this.number += 1 * times;
+        },
+        changeMousePosition(event, divideNumber) {
+          // console.log(event);
+          this.x = event.clientX / divideNumber;
+          this.y = event.clientY / divideNumber;
+        }
+      }
+    })
+  </script>
+
+</body>
+</html>
