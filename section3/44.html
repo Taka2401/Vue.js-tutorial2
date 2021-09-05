@@ -12,12 +12,14 @@
 
   <div id="app">
     <ul>
-      <!-- 第二引数に番号を取る -->
+      <!-- 配列 -->
+      <!-- 第二引数にindexを取る -->
       <li v-for="(fruit, index) in fruits">({{ index }}){{ fruit }}</li>
     </ul>
     <ul>
-      <!-- 第二引数にkeyを取る -->
-      <li v-for="(value, key) in Object">{{ key }} - {{ value }}</li>
+      <!-- オブジェクト -->
+      <!-- 第二引数にkey, 第三引数にindexを取る -->
+      <li v-for="(value, key, index) in Object">({{ index }}){{ key }} - {{ value }}</li>
     </ul>
   </div>
 
