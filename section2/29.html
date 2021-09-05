@@ -11,9 +11,15 @@
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 
   <div id="app">
+    <!-- クラスにバインド -->
     <!-- <h1 :class="{ red: true, 'bg-blue': false}">hello</h1> -->
+
+    <!-- dataにバインド -->
     <!-- <h1 :class="{ red: isActive, 'bg-blue': !isActive}">hello</h1> -->
+
+    <!-- オブジェクトにバインド -->
     <h1 :class="classObject">hello</h1>
+
     <button @click="isActive = !isActive">切り替え</button>
   </div>
 
