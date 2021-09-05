@@ -11,13 +11,25 @@
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 
   <div id="app">
-    <p class="red bg-blue">hello</p>
+    <h1 :class="classObject">hello</h1>
+    <button @click="isActive = !isActive">切り替え</button>
+
+    <!-- <h1 :class="[red, bg]">Hello</h1> -->
+    <h1 :class="[{ red: isActive }, bg]">Hello</h1>
   </div>
 
 <script>
   new Vue({
     el: '#app',
     data: {
+      isActive: true,
+      red: 'red',
+      bg: 'bg-blue'
+    },
+    computed: {
+      classObject() {
+        return { red: this.isActive, 'bg-blue': !this.isActive };
+      }
     }
   })
 
