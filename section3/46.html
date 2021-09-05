@@ -12,6 +12,7 @@
 
   <div id="app">
     <ul>
+      <!-- v-for inやofが使える -->
       <li v-for="(fruit, index) in fruits">({{ index }}){{ fruit }}</li>
     </ul>
     <!-- なるべくtemplateを使ったほうがいい -->
@@ -23,7 +24,7 @@
     </ul>
     <ul>
       <!-- 整数もリストレンダリングできる -->
-      <li v-for="(n in 10">{{ n }}</li>
+      <li v-for="(n of 10">{{ n }}</li>
     </ul>
   </div>
 
