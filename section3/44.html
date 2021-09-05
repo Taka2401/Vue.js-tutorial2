@@ -11,12 +11,27 @@
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 
   <div id="app">
+    <ul>
+      <!-- 第二引数に番号を取る -->
+      <li v-for="(fruit, index) in fruits">({{ index }}){{ fruit }}</li>
+    </ul>
+    <ul>
+      <!-- 第二引数にkeyを取る -->
+      <li v-for="(value, key) in Object">{{ key }} - {{ value }}</li>
+    </ul>
   </div>
 
 <script>
   new Vue({
     el: '#app',
     data: {
+      fruits: ['りんご', 'バナナ', 'ブドウ'],
+      // オブジェクトは表示の順番が決まってない
+      Object: {
+        firstName: '太郎',
+        lastName: '田中',
+        age: 21
+      }
     }
   })
 
