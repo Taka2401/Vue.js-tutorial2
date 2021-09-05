@@ -11,12 +11,24 @@
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 
   <div id="app">
+    <!-- 頻繁に切り替えるのには向かない -->
+    <p v-if="ok">ok</p>
+
+    <!-- 初期描画のコストが掛かる -->
+    <p v-show="ok">show</p>
+    <button @click="ok = !ok">切り替え</button>
+
+    <!-- templateでshowは使えない -->
+    <!-- <template v-show="ok">
+      <p>show</p>
+    </template> -->
   </div>
 
 <script>
   new Vue({
     el: '#app',
     data: {
+      ok: true
     }
   })
 
