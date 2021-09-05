@@ -11,12 +11,19 @@
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 
   <div id="app">
+    <!-- templateは検証で表示されない -->
+    <template v-if="ok">
+      <p>Hello</p>
+      <p>Good bye</p>
+      <p>おはよう</p>
+    </template>
   </div>
 
 <script>
   new Vue({
     el: '#app',
     data: {
+      ok: true
     }
   })
 
