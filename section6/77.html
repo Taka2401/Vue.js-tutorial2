@@ -11,13 +11,59 @@
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 
   <div id="app">
+    <my-component></my-component>
+    <my-component></my-component>
+    <my-component></my-component>
+    <hr>
+  </div>
+
+  <div id="app2">
+    <my-component></my-component>
+    <my-component></my-component>
+    <my-component></my-component>
   </div>
 
 <script>
+  // ローカル登録(一般的に使われる)
+  const component = {
+    data() {
+      return {
+        number: 12
+      }
+    },
+    template: '<p>いいね ({{ number }})<button @click="increment">+1</button></p>',
+    methods: {
+      increment() {
+        this.number += 1;
+      }
+    }
+  };
+
+  // グローバル登録(ファイルのサイズが大きくなる)
+  // Vue.component('my-component', {
+  //   data() {
+  //     return {
+  //       number: 12
+  //     }
+  //   },
+  //   template: '<p>いいね ({{ number }})<button @click="increment">+1</button></p>',
+  //   methods: {
+  //     increment() {
+  //       this.number += 1;
+  //     }
+  //   }
+  // });
+
+
   new Vue({
     el: '#app',
-    data: {
+    components: {
+      'my-component': component
     }
+  })
+
+  new Vue({
+    el: '#app2'
   })
 
 </script>
