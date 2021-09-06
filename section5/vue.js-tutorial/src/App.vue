@@ -2,7 +2,8 @@
   <div>
     <LikeHeader></LikeHeader>
     <h2>{{ totalNumber}}</h2>
-    <!-- HTMLはケバブケースで書く -->
+    <!-- 指定がないので初期値で設定される -->
+    <LikeNumber></LikeNumber>
     <LikeNumber :total-number="totalNumber"></LikeNumber>
   </div>
 </template>
