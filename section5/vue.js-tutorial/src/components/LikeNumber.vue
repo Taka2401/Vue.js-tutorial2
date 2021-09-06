@@ -1,14 +1,12 @@
 <template>
-    <p>いいね ({{ number }})</p>
+    <!-- データを反映させる -->
+    <p>いいね ({{ number / 2 }})</p>
 </template>
 
 <script>
-// ローカル登録しないとLikeHeaderは使えない
 export default {
-  data() {
-    return {
-      number: 5
-    };
-  }
+  // データを受け取る
+  props: ['number'],
+
 };
 </script>
