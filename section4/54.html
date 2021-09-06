@@ -11,14 +11,32 @@
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 
   <div id="app">
+    <p>{{ message }}</p>
+    <p>{{ name }}</p>
+    <button @click="message = 'test'">変更</button>
   </div>
 
 <script>
-  new Vue({
-    el: '#app',
-    data: {
+
+  const data = {
+      message: 'Hello',
+      name: 'よしぴー'
     }
+
+
+  const vm = new Vue({
+    el: '#app',
+    // 外部のオブジェクトを使える
+    data: data
   })
+
+  console.log(data === vm.$data);
+
+  // Vueインスタンスプロパティ
+  console.log(vm);
+
+  // データを使うときは$をつける
+  // console.log(vm.$data);
 
 </script>
 
