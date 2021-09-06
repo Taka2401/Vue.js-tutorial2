@@ -3,6 +3,7 @@
 </template>
 
 <script>
+// ローカル登録しないとLikeHeaderは使えない
 export default {
   data() {
     return {
