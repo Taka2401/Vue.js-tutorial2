@@ -13,7 +13,7 @@ import LikeHeader from "./components/LikeHeader.vue"
 export default {
   data() {
     return {
-      totalNumber: 8
+      totalNumber: 66
     }
   },
   components: {
