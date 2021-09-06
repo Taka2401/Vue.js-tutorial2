@@ -2,8 +2,7 @@
   <div>
     <LikeHeader></LikeHeader>
     <h2>{{ totalNumber}}</h2>
-    <!-- 指定がないので初期値で設定される -->
-    <LikeNumber></LikeNumber>
+    <LikeNumber :total-number="totalNumber" :testProps=5></LikeNumber>
     <LikeNumber :total-number="totalNumber"></LikeNumber>
   </div>
 </template>
@@ -14,7 +13,7 @@ import LikeHeader from "./components/LikeHeader.vue"
 export default {
   data() {
     return {
-      totalNumber: 66
+      totalNumber: 20
     }
   },
   components: {

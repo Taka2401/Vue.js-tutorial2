@@ -4,29 +4,20 @@
 
 <script>
 export default {
-  props: {
-    // バリデーション
-    //totalNumber: String
-
-    // オブジェクトでも書ける
-    totalNumber: {
-      // 型
-      type: Number,
-
-      // totalNumberが必ず必要
-      // required: true
-
-      // オブジェクトだと関数で初期値を設定
-      default() {
-        return {
-          number: 5
-        }
-      }
-    }
-  },
+  // 配列で複数渡せる
+  props: ['totalNumber', 'testProps'],
+  // props: {
+  //   totalNumber: {
+  //     type: Number,
+  //     default: 10
+  //   },
+  //   // 複数propsのバリデーションを作れる
+  //   testProps: {
+  //     type: String
+  //   }
+  // },
   computed: {
     halfNumber() {
-      // propsで受け取った値もthisを使える
       return this.totalNumber / 2;
     }
   }
