@@ -3,8 +3,8 @@
     <LikeHeader></LikeHeader>
     <h2>{{ number}}</h2>
     <!-- $emitでの処理をnumberに代入する -->
-    <LikeNumber :total-number="number" v-on:my-click="number = $event"></LikeNumber>
-    <LikeNumber :total-number="number"></LikeNumber>
+    <LikeNumber :total-number="number" @my-click="number = $event"></LikeNumber>
+    <LikeNumber :total-number="number" @my-click="increment"></LikeNumber>
   </div>
 </template>
 
@@ -19,6 +19,12 @@ export default {
   },
   components: {
     LikeHeader,
-  }
+  },
+  methods: {
+    // 引数に$emitの処理を渡すことができる
+    increment(value) {
+      this.number = value;
+    }
+  },
 };
 </script>
