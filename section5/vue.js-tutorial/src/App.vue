@@ -1,17 +1,3 @@
 <template>
-  <div id="app">
-  </div>
+    <LikeNumber></LikeNumber>
 </template>
-
-<script>
-export default {
-  data() {
-    return {
-
-    }
-  }
-}
-</script>
-
-<style
-</style>
