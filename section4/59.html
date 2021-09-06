@@ -11,15 +11,64 @@
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 
   <div id="app">
+    <p>{{ message }}</p>
+    <p>{{ name }}</p>
+    <p>{{ myData }}</p>
+    <button @click="message = 'test'">変更</button>
   </div>
 
+  <div id="app2"></div>
+  <div id="app3"></div>
+
 <script>
-  new Vue({
-    el: '#app',
-    data: {
+
+  const data = {
+      message: 'Hello',
+      name: 'よしぴー'
+    }
+
+
+  const vm = new Vue({
+    data: data,
+    computed: {
+      myData() {
+        return this.$data;
+      }
     }
   })
 
+  vm.$mount('#app');
+
+  new Vue({
+    data: {
+      name: 'よしぴー'
+    },
+    // これでも表示できる
+    template: '<h1>こんにちは、{{ name }}</h1>'
+  }).$mount('#app2');
+
+  new Vue({
+    data: {
+      name: 'よしぴー'
+    },
+    render(createElement) {
+      // 仮想Nodeを返し、仮想DOMを作っている
+      // console.log(createElement('h1', 'こんにちは、' + this.name));
+
+      // 間接的に要素を追加
+      return createElement('h1', 'こんにちは、' + this.name);
+    }
+  }).$mount('#app3');
+
+  // 直接DOMに要素を追加
+  // let dir = document.createElement('div');
+  // console.log(dir);
+
+  // ドキュメント・・HTMLを読み取りブラウザが作ったもの
+  console.log(document);
+
+  // DOMの表示
+  console.dir(document);
 </script>
 
 </body>
