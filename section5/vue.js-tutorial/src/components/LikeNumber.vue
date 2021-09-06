@@ -1,12 +1,11 @@
 <template>
-    <!-- データを反映させる -->
-    <p>いいね ({{ number / 2 }})</p>
+    <p>いいね ({{ totalNumber / 2 }})</p>
 </template>
 
 <script>
 export default {
-  // データを受け取る
-  props: ['number'],
+  // JSファイルはキャメルケースで書く
+  props: ['totalNumber'],
 
 };
 </script>
