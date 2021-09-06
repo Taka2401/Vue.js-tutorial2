@@ -11,13 +11,51 @@
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 
   <div id="app">
+    <my-component></my-component>
+    <my-component></my-component>
+    <my-component></my-component>
   </div>
 
 <script>
-  new Vue({
-    el: '#app',
-    data: {
+
+  // const data = {
+  //   number: 5
+  // }
+
+  // NG
+  // Vue.component('my-component', {
+  //   // 関数にしないとメモリが一か所にまとまり変更があるとすべてに反映される
+  //   data() {
+  //     // returnを関数にしないとダメ
+  //     return data
+  //   },
+  //   template: '<p>いいね ({{ number }})<button @click="increment">+1</button></p>',
+  //   methods: {
+  //     increment() {
+  //       this.number += 1;
+  //     }
+  //   }
+  // });
+
+  // ok
+  Vue.component('my-component', {
+    // 関数にしないとメモリが一か所にまとまり変更があるとすべてに反映される
+    data() {
+      return {
+        number: 12
+      }
+    },
+    template: '<p>いいね ({{ number }})<button @click="increment">+1</button></p>',
+    methods: {
+      increment() {
+        this.number += 1;
+      }
     }
+  });
+
+
+  new Vue({
+    el: '#app'
   })
 
 </script>
