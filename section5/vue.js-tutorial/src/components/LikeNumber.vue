@@ -1,25 +1,24 @@
 <template>
+  <div>
     <p>いいね ({{ halfNumber }})</p>
+    <button @click="increment">+1</button>
+  </div>
 </template>
 
 <script>
 export default {
-  // 配列で複数渡せる
-  props: ['totalNumber', 'testProps'],
-  // props: {
-  //   totalNumber: {
-  //     type: Number,
-  //     default: 10
-  //   },
-  //   // 複数propsのバリデーションを作れる
-  //   testProps: {
-  //     type: String
-  //   }
-  // },
+  props: ['totalNumber'],
   computed: {
     halfNumber() {
       return this.totalNumber / 2;
     }
-  }
+  },
+  methods: {
+    increment() {
+      // 送り口を書く
+      // $emit('イベントの好きな名前', データの処理)
+      this.$emit('my-click', this.totalNumber += 1);
+    }
+  },
 };
 </script>

@@ -1,9 +1,10 @@
 <template>
   <div>
     <LikeHeader></LikeHeader>
-    <h2>{{ totalNumber}}</h2>
-    <LikeNumber :total-number="totalNumber" :testProps=5></LikeNumber>
-    <LikeNumber :total-number="totalNumber"></LikeNumber>
+    <h2>{{ number}}</h2>
+    <!-- $emitでの処理をnumberに代入する -->
+    <LikeNumber :total-number="number" v-on:my-click="number = $event"></LikeNumber>
+    <LikeNumber :total-number="number"></LikeNumber>
   </div>
 </template>
 
@@ -13,7 +14,7 @@ import LikeHeader from "./components/LikeHeader.vue"
 export default {
   data() {
     return {
-      totalNumber: 20
+      number: 20
     }
   },
   components: {
