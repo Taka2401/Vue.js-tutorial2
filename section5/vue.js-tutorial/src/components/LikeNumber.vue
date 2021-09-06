@@ -15,12 +15,7 @@ export default {
   },
   methods: {
     increment() {
-      // 親には届かない
-      // 分かりやすいデータフローにするため、単一方向になっている
-      // this.totalNumber += 1;
-
-      // 送り口を書く
-      // $emit('イベントの好きな名前', データの処理)
+      // カスタムイベントはJavascriptで使われないのでケバブケースで書く
       this.$emit('my-click', this.totalNumber += 1);
     }
   },
