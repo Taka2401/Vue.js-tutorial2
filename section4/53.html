@@ -11,14 +11,26 @@
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 
   <div id="app">
+    <p>{{ message }}</p>
+    <p>{{ name }}</p>
+    <!-- messageの場合は変更できる -->
+    <button @click="message = 'test'">変更</button>
   </div>
 
 <script>
-  new Vue({
+  // Vueインスタンスはプロパティごとにsetter, getterを追加する
+  // なので、リアクティブになりdataを再描画できる
+  const vm = new Vue({
     el: '#app',
     data: {
+      message: 'Hello'
     }
   })
+
+  vm.message = '変更済み';
+
+  // 後から追加すると変更できない（リアクティブにならない）
+  vm.name = 'よしぴー';
 
 </script>
 
