@@ -9,6 +9,11 @@
     <br><br>
     <button @click="createComment">送信する</button>
     <h2>掲示板</h2>
+    <br>
+    <div v-for="post in posts" :key="post.name">
+      <div>名前：{{ post.fields.name.stringValue }}</div>
+      <div>コメント：{{ post.fields.comment.stringValue }}</div>
+    </div>
   </div>
 </template>
 
@@ -19,14 +24,23 @@ export default {
   data() {
     return {
       name: '',
-      comment: ''
+      comment: '',
+      posts: []
     }
-  },created() {
-
+  },
+  // axios get(取得したいサーバーのURL、リクエストの設定)
+  created() {
+    axios.get(
+      'https://firestore.googleapis.com/v1/projects/vue-axios-e9ec9/databases/(default)/documents/comments'
+    )
+    .then(response=> {
+      this.posts = response.data.documents;
+      console.log(response.data.documents);
+    });
   },
   methods: {
     createComment() {
-      // axios(送り先のURL、送るデータ、追加オプション)
+      // axios post(送り先のURL、送るデータ、追加オプション)
       axios.post(
         'https://firestore.googleapis.com/v1/projects/vue-axios-e9ec9/databases/(default)/documents/comments',
         { //firebaseの場合はfieldsをつける
@@ -40,12 +54,11 @@ export default {
           }
         }
       )
-      .then(response => {
-        console.log(response);
+      .then(() => {
+        axios.get('// url').then(response => {
+          this.posts = response.data.documents;
+        });
       })
-      .catch(error => {
-        console.log(error);
-      });
       this.name = '';
       this.comment = '';
     }
